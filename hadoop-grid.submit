@@ -1,0 +1,18 @@
+universe = vanilla
+#requirements = GLIDEIN_ResourceName =?= "USCMS-FNAL-WC1" || GLIDEIN_ResourceName =?= "UCSDT2" || GLIDEIN_ResourceName =?= "GLOW"
+requirements = GLIDEIN_ResourceName =?= "UCSDT2" || GLIDEIN_ResourceName =?= "GLOW" ||  GLIDEIN_ResourceName =?= "AGLT2" || GLIDEIN_ResourceName =?= "MIT_CMS"
+executable = wrapper.sh
+output = condor_out/out.$(CLUSTER).$(PROCESS)
+error = condor_out/err.$(CLUSTER).$(PROCESS)
+
+log = hadoop-grid.log
+#transfer_input_files = keystore-2.jks
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT_OR_EVICT
+OnExitRemove = FALSE
+PeriodicHold = false
+x509userproxy = /tmp/x509up_u1384 
+queue 10
+
+
+
